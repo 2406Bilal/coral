@@ -28,8 +28,8 @@ onMounted(loadCart);
   <div class="container mx-auto">
     <div class="mt-5 flex items-center justify-between">
       <div class="flex items-center">
-        <ArrowLeft class="cursor-pointer"  @click="router.push('/')" />
-        <h2 class="text-3xl">Your Cart</h2>
+        <ArrowLeft class="cursor-pointer" @click="router.push('/')" />
+        <h2 class="text-xl md:text-3xl">Your Cart</h2>
       </div>
       <img :src="Logo" alt="">
       <div>
@@ -39,13 +39,13 @@ onMounted(loadCart);
       </div>
     </div>
 
-    <div v-if="cart.length > 0" class="grid grid-cols-3 gap-10 mt-5">
+    <div v-if="cart.length > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-5">
       <div v-for="item in cart" :key="item.id">
         <div class="p-4 border rounded-lg shadow">
           <img :src="item.image" alt="item Image" class="w-[312px] h-[400px] object-fill" />
           <p class="font-semibold line-clamp-1">{{ item.title }}</p>
         <div class="flex justify-between">
-          <p>${{ item.price }}</p>  
+          <p>${{ item.price }}</p>
           <button @click="removeFromCart(item.id)" class="bg-red-500 text-white px-3 py-1 rounded">
             x
           </button>

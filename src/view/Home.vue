@@ -29,7 +29,7 @@ const getProducts = async () => {
     products.value = response.data.slice(0, 8);
     bestsales.value = response.data.slice(0, 4);
     photos.value = response.data.slice(0, 6);
-    console.log('response', response.data);  
+    console.log('response', response.data);
   } catch (error) {
     console.error('Error fetching products:', error);
   }
@@ -53,7 +53,7 @@ const addToCart = (product) => {
   <Header id="top" />
 <div class="container mx-auto">
   <div>
-    <div class="flex items-center justify-between mt-24">
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 items-center justify-start md:justify-between mt-10 md:mt-24">
       <img :src="BrandOne" alt="">
       <img :src="BrandTwo" alt="">
       <img :src="BrandThree" alt="">
@@ -62,8 +62,8 @@ const addToCart = (product) => {
     </div>
   </div>
 
-  <div class="mt-24">
-    <div class="grid grid-cols-2 gap-6">
+  <div class="mt-10 md:mt-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <img :src="Card" alt="image" class=""> 
       </div>
@@ -77,9 +77,9 @@ const addToCart = (product) => {
   </div>
 
   <div class="mt-36">
-    <p class="text-center text-5xl font-medium">Or subscribe to the newsletter</p>
+    <p class="text-center text-2xl md:text-5xl font-medium">Or subscribe to the newsletter</p>
     <div class="flex justify-between items-center mt-9">
-      <div class="flex gap-10 text-base font-semibold text-[#00000080]">
+      <div class="flex gap-5 md:gap-10 text-base font-semibold text-[#00000080]">
         <p class="text-black">All products</p>
         <p>T-shirt</p>
         <p>Hoodies</p>
@@ -91,7 +91,7 @@ const addToCart = (product) => {
       </div>
     </div>
       <div>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-9">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-9">
           <div v-for="product in products" :key="product.id" @add-to-cart="addToCart">
             <Product :product="product" />
           </div>
@@ -99,11 +99,13 @@ const addToCart = (product) => {
       </div>
   </div>
 </div>
-<Banner class="mt-36"/>
-<div class="container mx-auto mt-36">
-  <p class="text-5xl font-medium text-center">Best sellers</p>
+
+<Banner class="mt-10 md:mt-36"/>
+
+<div class="container mx-auto mt-10 md:mt-36">
+  <p class="text-2xl md:text-5xl font-medium text-center">Best sellers</p>
   <div class="flex justify-between items-center mt-9">
-      <div class="flex gap-10 text-base font-semibold text-[#00000080]">
+      <div class="flex gap-5 md:gap-10 overflow-auto text-base font-semibold text-[#00000080]">
         <p class="text-black">All products</p>
         <p>T-shirt</p>
         <p>Hoodies</p>
@@ -114,7 +116,7 @@ const addToCart = (product) => {
         filter
       </div>
     </div>
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-9">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-9">
     <div v-for="bestsale in bestsales" :key="bestsale.id">
       <BestSales :product="bestsale" />
     </div>
@@ -123,17 +125,17 @@ const addToCart = (product) => {
 
 <div class="bg-[#1E28320D] mt-24">
   <div class="container mx-auto">
-    <p class="text-center font-medium text-5xl p-24">Follow products and discounts on Instagram</p>
-    <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
+    <p class="text-center font-medium text-2xl md:text-5xl p-10 md:p-24">Follow products and discounts on Instagram</p>
+    <div class="grid grid-cols-2 justify-center sm:grid-cols-3 md:grid-cols-6 gap-6">
       <div v-for="photo in photos" :key="photo.id">
         <img :src="photo.image" alt="Instagram photo" class="size-52" />
       </div>
     </div>
 
     <div class="mt-16 flex flex-col items-center pb-24">
-      <p class="text-5xl font-medium">Or subscribe to the newsletter</p>
-      <div class="flex gap-3 mt-20">
-        <input type="email" class="border-b-2 pb-3 border-black w-[620px] bg-inherit placeholder:font-semibold focus:outline-none placeholder:text-base text-lg" placeholder="Email Address...">
+      <p class="text-2xl md:text-5xl font-medium">Or subscribe to the newsletter</p>
+      <div class="flex gap-3 mt-5 md:mt-20">
+        <input type="email" class="border-b-2 pb-3 border-black md:w-[620px] bg-inherit placeholder:font-semibold focus:outline-none placeholder:text-base text-lg" placeholder="Email Address...">
         <button class="border-black border-b-2 px-5">submit</button>
       </div>
     </div>

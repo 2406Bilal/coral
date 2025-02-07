@@ -20,8 +20,8 @@ const addToCart = () => {
 </script>
 
 <template>
-  <div class="p-4 border rounded-lg shadow">
-    <img :src="product.image" alt="Product Image" class="w-[312px] h-[400px] object-fill" />
+  <div class="p-4 border rounded-lg shadow items-center justify-center flex flex-col">
+    <img :src="product.image" alt="Product Image" class="w-[312px] h-[400px] object-cover" />
     <p class="font-semibold line-clamp-1">{{ product.title }}</p>
     <p>${{ product.price }}</p>
     <button @click="addToCart" class="bg-blue-500 text-white px-4 py-2 mt-2 rounded">
